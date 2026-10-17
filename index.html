@@ -1,0 +1,1571 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Eu preparo a página para celulares, incluindo o iPhone 12. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meu Livro de Programação | M.O Store</title>
+
+  <style>
+    /* =========================================
+       MEU LIVRO DIGITAL DE PROGRAMAÇÃO
+       CSS RESPONSIVO E PROFISSIONAL
+       ========================================= */
+
+    /* Eu defino as cores principais do livro. */
+    :root {
+      --fundo: #081120;
+      --painel: #12213a;
+      --painel-claro: #1a2d49;
+      --texto: #f0f6ff;
+      --suave: #aebfd5;
+      --azul: #55d4ff;
+      --verde: #78e4b1;
+      --borda: #304762;
+    }
+
+    /* Eu padronizo o tamanho dos elementos. */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Eu preparo o visual geral do livro. */
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* Eu limito a largura para facilitar a leitura. */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 18px;
+    }
+
+    /* Eu construo a capa digital. */
+    header {
+      padding: 55px 20px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top, #204c80, transparent 65%),
+        linear-gradient(135deg, #101c33, #081120);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .etiqueta {
+      color: var(--verde);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    header h1 {
+      font-size: clamp(32px, 8vw, 60px);
+      line-height: 1.12;
+      margin: 20px 0;
+      color: var(--azul);
+    }
+
+    header p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--suave);
+    }
+
+    .subtitulo {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--verde);
+    }
+
+    /* Eu mantenho a pesquisa acessível na leitura. */
+    .barra {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #081120f2;
+      border-bottom: 1px solid var(--borda);
+      padding: 12px;
+    }
+
+    .barra-conteudo {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      padding: 13px;
+      color: white;
+      font-size: 15px;
+    }
+
+    button {
+      border: 1px solid var(--borda);
+      background: var(--painel-claro);
+      color: white;
+      border-radius: 10px;
+      padding: 11px 14px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:active {
+      transform: scale(.98);
+    }
+
+    /* Eu apresento o progresso de estudo. */
+    .progresso {
+      background: #1a2d49;
+      height: 9px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 12px 0 25px;
+    }
+
+    #barraProgresso {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      transition: width .3s;
+    }
+
+    /* Eu organizo o sumário. */
+    .sumario {
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .sumario h2 {
+      margin-top: 0;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .links a {
+      display: block;
+      padding: 11px;
+      background: #0c1930;
+      color: var(--azul);
+      text-decoration: none;
+      border-radius: 9px;
+      font-size: 14px;
+    }
+
+    /* Eu estilizo cada capítulo. */
+    .capitulo {
+      background: linear-gradient(145deg, #14243e, #0e1a2d);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 22px;
+      scroll-margin-top: 90px;
+    }
+
+    .numero {
+      color: var(--verde);
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      line-height: 1.3;
+    }
+
+    h3 {
+      color: var(--azul);
+      margin-top: 24px;
+    }
+
+    p, li {
+      color: #d4e1f1;
+    }
+
+    strong {
+      color: white;
+    }
+
+    /* Eu destaco informações importantes. */
+    .dica {
+      background: #143647;
+      border-left: 4px solid var(--verde);
+      padding: 14px;
+      border-radius: 8px;
+      margin: 18px 0;
+    }
+
+    .alerta {
+      background: #40321c;
+      border-left: 4px solid #ffcb70;
+      padding: 14px;
+      border-radius: 8px;
+      margin: 18px 0;
+    }
+
+    /* Eu preparo os exemplos de programação. */
+    pre {
+      background: #050c19;
+      color: #aee4ff;
+      border: 1px solid var(--borda);
+      padding: 18px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+    }
+
+    p code, li code {
+      background: #263e59;
+      color: var(--azul);
+      padding: 3px 6px;
+      border-radius: 5px;
+      overflow-wrap: anywhere;
+    }
+
+    .tabela {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 11px;
+      text-align: left;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    th {
+      color: var(--azul);
+    }
+
+    .estudado {
+      display: block;
+      width: 100%;
+      margin-top: 25px;
+      background: #173f43;
+      border-color: #358b85;
+    }
+
+    .estudado.ativo {
+      background: #18563c;
+      border-color: var(--verde);
+    }
+
+    .quiz {
+      background: #0b182c;
+      padding: 16px;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    .quiz button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 8px 0;
+    }
+
+    .resposta {
+      color: var(--verde);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--suave);
+      padding: 35px 15px;
+    }
+
+    /* Eu adapto o livro para telas pequenas. */
+    @media (max-width: 600px) {
+      .container {
+        padding: 12px;
+      }
+
+      .capitulo {
+        padding: 17px;
+      }
+
+      .links {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 45px 15px;
+      }
+
+      pre {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       CAPA DO LIVRO
+       ========================================= -->
+
+  <header>
+    <div class="etiqueta">MEU LIVRO DIGITAL</div>
+
+    <h1>Do HTML ao React<br>e Além</h1>
+
+    <p>
+      Uma jornada prática de programação baseada
+      no desenvolvimento da M.O Store.
+    </p>
+
+    <div class="subtitulo">
+      HTML • CSS • JavaScript • React • Git • APIs • Testes
+    </div>
+  </header>
+
+  <!-- =========================================
+       PESQUISA DO LIVRO
+       ========================================= -->
+
+  <div class="barra">
+    <div class="barra-conteudo">
+      <input
+        id="pesquisa"
+        type="search"
+        placeholder="Pesquisar assunto ou comando..."
+        aria-label="Pesquisar no livro"
+      >
+
+      <button id="limparPesquisa">Limpar</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <p id="textoProgresso">Progresso: 0 capítulos estudados</p>
+
+    <div class="progresso">
+      <div id="barraProgresso"></div>
+    </div>
+
+    <!-- Eu gero o sumário automaticamente com JavaScript. -->
+    <nav class="sumario">
+      <h2>📚 Sumário</h2>
+      <div id="linksSumario" class="links"></div>
+    </nav>
+
+    <main>
+
+      <!-- =========================================
+           CAPÍTULO 1
+           ========================================= -->
+
+      <section class="capitulo" id="cap1" data-titulo="Internet e sites">
+
+        <div class="numero">CAPÍTULO 01</div>
+
+        <h2>Como a internet e os sites funcionam?</h2>
+
+        <p>
+          Quando abrimos um site, nosso navegador se comunica
+          com computadores chamados servidores.
+        </p>
+
+        <p>
+          Esses servidores enviam arquivos e informações
+          para que a página seja apresentada.
+        </p>
+
+        <h3>As partes principais</h3>
+
+        <ul>
+          <li><strong>Frontend:</strong> aquilo que o usuário vê e utiliza.</li>
+          <li><strong>Backend:</strong> sistema que executa regras no servidor.</li>
+          <li><strong>API:</strong> interface para comunicação entre sistemas.</li>
+          <li><strong>Banco de dados:</strong> armazena informações.</li>
+          <li><strong>Domínio:</strong> endereço público do site.</li>
+          <li><strong>Hospedagem:</strong> serviço que mantém o site acessível.</li>
+        </ul>
+
+        <div class="dica">
+          Domínio é endereço. Hospedagem disponibiliza a aplicação.
+          API permite comunicação. Banco de dados armazena informações.
+        </div>
+
+        <h3>Exemplo de uma loja virtual</h3>
+
+        <pre><code>CLIENTE
+   |
+   v
+SITE / FRONTEND
+   |
+   v
+BACKEND / API
+   |
+   v
+BANCO DE DADOS
+   |
+   v
+RESPOSTA AO CLIENTE</code></pre>
+
+        <p>
+          Uma loja real também pode integrar sistemas de
+          pagamento, estoque, transportadoras e notificações.
+        </p>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 2
+           ========================================= -->
+
+      <section class="capitulo" id="cap2" data-titulo="HTML">
+
+        <div class="numero">CAPÍTULO 02</div>
+
+        <h2>HTML: a estrutura da página</h2>
+
+        <p>
+          HTML significa HyperText Markup Language.
+          É a linguagem de marcação que organiza o conteúdo.
+        </p>
+
+        <h3>Estrutura básica</h3>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Meu Site&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;!-- Eu apresento o título. --&gt;
+  &lt;h1&gt;Minha primeira página&lt;/h1&gt;
+
+  &lt;!-- Eu apresento um parágrafo. --&gt;
+  &lt;p&gt;Estou aprendendo HTML.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>Tags importantes</h3>
+
+        <div class="tabela">
+          <table>
+            <tr><th>Tag</th><th>Função</th></tr>
+            <tr><td>&lt;h1&gt;</td><td>Título principal</td></tr>
+            <tr><td>&lt;p&gt;</td><td>Parágrafo</td></tr>
+            <tr><td>&lt;a&gt;</td><td>Link</td></tr>
+            <tr><td>&lt;img&gt;</td><td>Imagem</td></tr>
+            <tr><td>&lt;button&gt;</td><td>Botão</td></tr>
+            <tr><td>&lt;form&gt;</td><td>Formulário</td></tr>
+            <tr><td>&lt;section&gt;</td><td>Seção</td></tr>
+          </table>
+        </div>
+
+        <div class="dica">
+          HTML não é uma linguagem de programação.
+          É uma linguagem de marcação.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 3
+           ========================================= -->
+
+      <section class="capitulo" id="cap3" data-titulo="CSS">
+
+        <div class="numero">CAPÍTULO 03</div>
+
+        <h2>CSS: o design profissional</h2>
+
+        <p>
+          CSS controla cores, tamanhos, espaçamentos,
+          fontes, animações e responsividade.
+        </p>
+
+        <h3>Exemplo comentado</h3>
+
+        <pre><code>/* Eu defino o fundo da página. */
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Eu estilizo os botões. */
+button {
+  background: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Eu adapto a página para celulares. */
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+  }
+}</code></pre>
+
+        <h3>O que é responsividade?</h3>
+
+        <p>
+          É a capacidade de uma página se adaptar
+          a celulares, tablets e computadores.
+        </p>
+
+        <div class="dica">
+          Um site profissional precisa ser legível,
+          navegável e acessível em diferentes telas.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 4
+           ========================================= -->
+
+      <section class="capitulo" id="cap4" data-titulo="JavaScript">
+
+        <div class="numero">CAPÍTULO 04</div>
+
+        <h2>JavaScript: comportamento e interação</h2>
+
+        <p>
+          JavaScript permite reagir a cliques,
+          manipular dados, validar formulários
+          e conversar com APIs.
+        </p>
+
+        <h3>Variáveis</h3>
+
+        <pre><code>// Eu guardo o nome de um produto.
+const nome = "Notebook";
+
+// Eu guardo o preço.
+const preco = 3500;
+
+// Eu posso alterar uma quantidade.
+let quantidade = 2;
+
+// Eu calculo o total.
+const total = preco * quantidade;
+
+console.log(total);</code></pre>
+
+        <h3>Funções</h3>
+
+        <pre><code>// Eu crio uma função para calcular preços.
+function calcularTotal(preco, quantidade) {
+  return preco * quantidade;
+}
+
+// Eu executo minha função.
+const resultado = calcularTotal(50, 3);
+
+console.log(resultado); // 150</code></pre>
+
+        <h3>Eventos</h3>
+
+        <pre><code>// Eu encontro um botão existente na página.
+const botao = document.getElementById("comprar");
+
+// Eu executo uma ação quando ele é clicado.
+botao.addEventListener("click", () => {
+  alert("Produto adicionado!");
+});</code></pre>
+
+        <div class="alerta">
+          O exemplo do botão exige que exista
+          um elemento com id="comprar" no HTML.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 5
+           ========================================= -->
+
+      <section class="capitulo" id="cap5" data-titulo="React e Vite">
+
+        <div class="numero">CAPÍTULO 05</div>
+
+        <h2>React: construindo interfaces com componentes</h2>
+
+        <p>
+          React é uma biblioteca JavaScript utilizada
+          para criar interfaces de usuário.
+        </p>
+
+        <p>
+          Na M.O Store utilizamos React com Vite,
+          uma ferramenta que facilita o desenvolvimento
+          e a geração dos arquivos de produção.
+        </p>
+
+        <h3>Um componente React</h3>
+
+        <pre><code>// Eu crio um componente chamado Saudacao.
+function Saudacao() {
+
+  // Eu retorno a interface do componente.
+  return (
+    &lt;h1&gt;Bem-vindo à minha loja!&lt;/h1&gt;
+  );
+}
+
+// Eu disponibilizo o componente.
+export default Saudacao;</code></pre>
+
+        <h3>O que são props?</h3>
+
+        <p>
+          Props são informações passadas
+          de um componente para outro.
+        </p>
+
+        <pre><code>// Eu recebo o nome como propriedade.
+function Produto({ nome }) {
+  return &lt;h2&gt;{nome}&lt;/h2&gt;;
+}
+
+// Eu utilizo o componente.
+&lt;Produto nome="Notebook" /&gt;</code></pre>
+
+        <h3>O que é useState?</h3>
+
+        <pre><code>import { useState } from "react";
+
+function Contador() {
+
+  // Eu armazeno o valor atual.
+  const [numero, setNumero] = useState(0);
+
+  return (
+    &lt;button
+      onClick={() =&gt; setNumero(numero + 1)}
+    &gt;
+      Cliques: {numero}
+    &lt;/button&gt;
+  );
+}</code></pre>
+
+        <div class="alerta">
+          Esses exemplos são JSX para um projeto React.
+          Não funcionam sozinhos dentro de um HTML comum
+          no Koder sem a preparação adequada.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 6
+           ========================================= -->
+
+      <section class="capitulo" id="cap6" data-titulo="Estrutura M.O Store">
+
+        <div class="numero">CAPÍTULO 06</div>
+
+        <h2>A arquitetura da M.O Store</h2>
+
+        <p>
+          Aprendemos a dividir o projeto em arquivos
+          com responsabilidades específicas.
+        </p>
+
+        <pre><code>mo-store/
+|
+|-- public/
+|   |-- produtos/
+|
+|-- src/
+|   |-- components/
+|   |-- config/
+|   |   |-- api.js
+|   |
+|   |-- context/
+|   |-- hooks/
+|   |-- pages/
+|   |-- utils/
+|   |-- App.jsx
+|   |-- main.jsx
+|
+|-- db.json
+|-- .env.example
+|-- package.json</code></pre>
+
+        <h3>O que cada pasta representa?</h3>
+
+        <ul>
+          <li><strong>components:</strong> elementos reutilizáveis.</li>
+          <li><strong>pages:</strong> páginas da aplicação.</li>
+          <li><strong>hooks:</strong> lógica reutilizável do React.</li>
+          <li><strong>context:</strong> estados compartilhados.</li>
+          <li><strong>utils:</strong> funções independentes.</li>
+          <li><strong>config:</strong> configurações da aplicação.</li>
+        </ul>
+
+        <h3>Rotas da nossa loja</h3>
+
+        <pre><code>/produtos
+/produtos/:id
+/carrinho
+/pagamento
+/sucesso
+/falha</code></pre>
+
+        <p>
+          Utilizamos React Router para navegar
+          entre essas páginas.
+        </p>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 7
+           ========================================= -->
+
+      <section class="capitulo" id="cap7" data-titulo="APIs e JSON Server">
+
+        <div class="numero">CAPÍTULO 07</div>
+
+        <h2>APIs, JSON Server e fetch</h2>
+
+        <p>
+          Nossa M.O Store utiliza JSON Server
+          para simular uma API de produtos.
+        </p>
+
+        <h3>Endereço local</h3>
+
+        <pre><code>http://localhost:3001/produtos</code></pre>
+
+        <p>
+          localhost representa o próprio dispositivo
+          que está fazendo a requisição.
+        </p>
+
+        <h3>Buscando produtos</h3>
+
+        <pre><code>// Eu consulto a API.
+const resposta = await fetch(
+  "http://localhost:3001/produtos"
+);
+
+// Eu converto a resposta para JavaScript.
+const produtos = await resposta.json();</code></pre>
+
+        <h3>Configuração centralizada</h3>
+
+        <p>
+          Na Aula 162, nossas páginas passaram
+          a utilizar uma configuração central.
+        </p>
+
+        <pre><code>// Arquivo: src/config/api.js
+
+// Eu consulto a variável do Vite.
+// Se não existir, utilizo a API local.
+const enderecoConfigurado =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:3001";
+
+// Eu removo barras finais desnecessárias.
+export const API_URL =
+  enderecoConfigurado.replace(/\/+$/, "");</code></pre>
+
+        <h3>Utilizando a configuração</h3>
+
+        <pre><code>// Eu importo o endereço da API.
+import { API_URL } from "../config/api.js";
+
+// Eu consulto o catálogo.
+const resposta = await fetch(
+  `${API_URL}/produtos`
+);</code></pre>
+
+        <h3>Arquivo .env.example</h3>
+
+        <pre><code>VITE_API_URL=http://localhost:3001</code></pre>
+
+        <div class="alerta">
+          Nunca coloque senhas ou chaves secretas
+          em variáveis VITE_. Elas podem ficar
+          visíveis no navegador.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 8
+           ========================================= -->
+
+      <section class="capitulo" id="cap8" data-titulo="Carrinho e pagamento">
+
+        <div class="numero">CAPÍTULO 08</div>
+
+        <h2>Carrinho, Context API e pagamento</h2>
+
+        <p>
+          Nossa M.O Store utiliza Context API
+          para compartilhar informações do carrinho.
+        </p>
+
+        <h3>O que é Context API?</h3>
+
+        <p>
+          É um recurso do React que permite
+          compartilhar dados entre componentes
+          sem passar propriedades manualmente
+          por muitos níveis.
+        </p>
+
+        <h3>Exemplo de cálculo</h3>
+
+        <pre><code>// Eu calculo o valor total de um item.
+function calcularSubtotal(produto) {
+  return produto.preco * produto.quantidade;
+}
+
+// Eu crio um produto de exemplo.
+const produto = {
+  preco: 100,
+  quantidade: 3
+};
+
+console.log(calcularSubtotal(produto));
+// Resultado: 300</code></pre>
+
+        <h3>Pagamento da M.O Store</h3>
+
+        <p>
+          Nosso projeto do SENAI possui um
+          formulário de pagamento simulado.
+        </p>
+
+        <ul>
+          <li>Validação de campos com React Hook Form e Zod.</li>
+          <li>Estado de processamento.</li>
+          <li>Página de sucesso.</li>
+          <li>Página de falha.</li>
+          <li>Regra especial para cartão com 16 dígitos repetidos.</li>
+        </ul>
+
+        <div class="alerta">
+          A M.O Store não cobra dinheiro real.
+          Para isso, precisaríamos de backend,
+          pedidos persistentes e integração segura
+          com um provedor de pagamentos.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 9
+           ========================================= -->
+
+      <section class="capitulo" id="cap9" data-titulo="PowerShell e npm">
+
+        <div class="numero">CAPÍTULO 09</div>
+
+        <h2>Comandos do terminal e PowerShell</h2>
+
+        <p>
+          Esses são os principais comandos
+          que utilizamos durante o desenvolvimento.
+        </p>
+
+        <div class="tabela">
+          <table>
+            <tr><th>Comando</th><th>Finalidade</th></tr>
+            <tr><td>pwd</td><td>Mostrar a pasta atual</td></tr>
+            <tr><td>Get-ChildItem</td><td>Listar arquivos</td></tr>
+            <tr><td>Get-Content</td><td>Ler um arquivo</td></tr>
+            <tr><td>Set-Content</td><td>Gravar conteúdo em arquivo</td></tr>
+            <tr><td>npm install</td><td>Instalar dependências</td></tr>
+            <tr><td>npm run dev</td><td>Iniciar o Vite</td></tr>
+            <tr><td>npm run api</td><td>Iniciar a API local</td></tr>
+            <tr><td>npm run lint</td><td>Executar ESLint</td></tr>
+            <tr><td>npm test</td><td>Executar Vitest</td></tr>
+            <tr><td>npm run build</td><td>Gerar pasta dist</td></tr>
+          </table>
+        </div>
+
+        <h3>Comando que utilizamos para encontrar URLs</h3>
+
+        <pre><code>Get-ChildItem .\src -Recurse -File |
+  Select-String -Pattern "localhost:3001"</code></pre>
+
+        <p>
+          Ele encontrou as conexões da API em
+          Produtos.jsx e ProdutoDetalhes.jsx.
+        </p>
+
+        <h3>Como visualizar um arquivo?</h3>
+
+        <pre><code>Get-Content .\src\pages\Produtos.jsx</code></pre>
+
+        <h3>Como executar os testes?</h3>
+
+        <pre><code>npm test</code></pre>
+
+        <div class="dica">
+          Nosso resultado na Aula 164:
+          3 arquivos de teste e 13 testes aprovados.
+        </div>
+
+        <div class="alerta">
+          Set-Content pode substituir o conteúdo
+          de um arquivo existente. Confira sempre
+          o caminho antes de executar.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 10
+           ========================================= -->
+
+      <section class="capitulo" id="cap10" data-titulo="Git e GitHub">
+
+        <div class="numero">CAPÍTULO 10</div>
+
+        <h2>Git, GitHub, branches e commits</h2>
+
+        <p>
+          Git controla as versões do projeto.
+          GitHub permite armazenar e compartilhar
+          repositórios pela internet.
+        </p>
+
+        <h3>Consultar a situação do projeto</h3>
+
+        <pre><code>git status</code></pre>
+
+        <h3>Verificar a raiz do repositório</h3>
+
+        <pre><code>git rev-parse --show-toplevel</code></pre>
+
+        <p>
+          Esse comando é importante para evitar
+          trabalhar no repositório errado.
+        </p>
+
+        <h3>Criar uma branch</h3>
+
+        <pre><code>git switch -c feature/configuracao-api</code></pre>
+
+        <h3>Preparar arquivos específicos</h3>
+
+        <pre><code>git add .env.example src/config/api.js src/pages/Produtos.jsx src/pages/ProdutoDetalhes.jsx</code></pre>
+
+        <h3>Criar o commit</h3>
+
+        <pre><code>git commit -m "feat: centraliza configuracao da API para publicacao"</code></pre>
+
+        <h3>Enviar a branch</h3>
+
+        <pre><code>git push -u origin feature/configuracao-api</code></pre>
+
+        <h3>Voltar para develop</h3>
+
+        <pre><code>git switch develop</code></pre>
+
+        <h3>Integrar a funcionalidade</h3>
+
+        <pre><code>git merge feature/configuracao-api</code></pre>
+
+        <h3>Atualizar o GitHub</h3>
+
+        <pre><code>git push origin develop</code></pre>
+
+        <div class="dica">
+          Nosso commit da configuração da API
+          recebeu o identificador fb73474.
+        </div>
+
+        <p>
+          Na Aula 174, enviamos a develop atualizada
+          ao repositório privado do GitHub.
+        </p>
+
+        <h3>O que é fast-forward?</h3>
+
+        <p>
+          É uma integração em que o Git consegue
+          avançar uma branch até o commit de outra,
+          sem criar um commit de merge adicional.
+        </p>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 11
+           ========================================= -->
+
+      <section class="capitulo" id="cap11" data-titulo="Testes e qualidade">
+
+        <div class="numero">CAPÍTULO 11</div>
+
+        <h2>ESLint, Vitest e build de produção</h2>
+
+        <h3>ESLint</h3>
+
+        <p>
+          Analisa o código para encontrar problemas
+          e verificar regras de qualidade.
+        </p>
+
+        <pre><code>npm run lint</code></pre>
+
+        <h3>Vitest</h3>
+
+        <p>
+          Executa testes automatizados das
+          funções da nossa aplicação.
+        </p>
+
+        <pre><code>npm test</code></pre>
+
+        <p>
+          Na M.O Store, os 13 testes passaram:
+        </p>
+
+        <ul>
+          <li>6 testes de filtragem de produtos.</li>
+          <li>4 testes de cálculo do carrinho.</li>
+          <li>3 testes de verificação de pagamento.</li>
+        </ul>
+
+        <h3>Build</h3>
+
+        <pre><code>npm run build</code></pre>
+
+        <p>
+          Esse comando utiliza o Vite para
+          gerar os arquivos de produção
+          dentro da pasta dist.
+        </p>
+
+        <div class="dica">
+          Na Aula 165, nosso build foi concluído
+          com sucesso: 141 módulos processados.
+        </div>
+
+        <div class="alerta">
+          Um build aprovado não significa que
+          a API pública já está funcionando.
+          Precisamos testar a aplicação publicada.
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 12
+           ========================================= -->
+
+      <section class="capitulo" id="cap12" data-titulo="Publicação e futuro full stack">
+
+        <div class="numero">CAPÍTULO 12</div>
+
+        <h2>Domínio, hospedagem e o futuro full stack</h2>
+
+        <h3>GitHub já coloca o site no ar?</h3>
+
+        <p>
+          Não automaticamente. O GitHub guarda
+          o código do projeto.
+        </p>
+
+        <p>
+          Para publicar, precisamos configurar
+          um serviço como GitHub Pages,
+          Vercel ou Netlify.
+        </p>
+
+        <h3>E a nossa API?</h3>
+
+        <p>
+          O JSON Server funciona localmente
+          enquanto estamos desenvolvendo.
+        </p>
+
+        <p>
+          Para a loja funcionar na internet,
+          precisamos de uma API acessível
+          aos visitantes.
+        </p>
+
+        <h3>Próximo projeto: M.O Commerce</h3>
+
+        <p>
+          Depois da M.O Store, nosso plano
+          de aprendizagem será construir
+          uma loja virtual mais completa.
+        </p>
+
+        <ol>
+          <li>Frontend com React.</li>
+          <li>Backend com Node.js.</li>
+          <li>Banco de dados PostgreSQL.</li>
+          <li>Cadastro e autenticação.</li>
+          <li>Pedidos e controle de estoque.</li>
+          <li>Painel administrativo.</li>
+          <li>Pagamentos em ambiente de testes.</li>
+          <li>Hospedagem, domínio e segurança.</li>
+        </ol>
+
+        <div class="dica">
+          Frontend conversa com o usuário.
+          Backend organiza as operações.
+          APIs conectam serviços.
+          Banco de dados guarda informações.
+        </div>
+
+        <h3>Onde paramos na M.O Store?</h3>
+
+        <p>
+          Concluímos a Aula 174.
+          Nossa develop foi atualizada no GitHub.
+        </p>
+
+        <p>
+          A próxima etapa é a Aula 175:
+          verificar o estado do repositório.
+        </p>
+
+        <pre><code>git status</code></pre>
+
+        <p>
+          Esse será nosso ponto de partida
+          quando retomarmos o projeto.
+        </p>
+
+      </section>
+
+      <!-- =========================================
+           CAPÍTULO 13
+           ========================================= -->
+
+      <section class="capitulo" id="cap13" data-titulo="Quiz de programação">
+
+        <div class="numero">CAPÍTULO 13</div>
+
+        <h2>Quiz: vamos testar o aprendizado?</h2>
+
+        <div class="quiz">
+
+          <p><strong>1. Qual linguagem organiza o conteúdo da página?</strong></p>
+
+          <button onclick="responder('r1', false)">
+            A) CSS
+          </button>
+
+          <button onclick="responder('r1', true)">
+            B) HTML
+          </button>
+
+          <button onclick="responder('r1', false)">
+            C) SQL
+          </button>
+
+          <p id="r1" class="resposta"></p>
+
+        </div>
+
+        <div class="quiz">
+
+          <p><strong>2. Qual comando executa os testes da M.O Store?</strong></p>
+
+          <button onclick="responder('r2', false)">
+            A) git status
+          </button>
+
+          <button onclick="responder('r2', true)">
+            B) npm test
+          </button>
+
+          <button onclick="responder('r2', false)">
+            C) npm run dev
+          </button>
+
+          <p id="r2" class="resposta"></p>
+
+        </div>
+
+        <div class="quiz">
+
+          <p><strong>3. O GitHub publica automaticamente nossa loja?</strong></p>
+
+          <button onclick="responder('r3', false)">
+            A) Sim, basta enviar o código
+          </button>
+
+          <button onclick="responder('r3', true)">
+            B) Não, é preciso configurar a hospedagem
+          </button>
+
+          <p id="r3" class="resposta"></p>
+
+        </div>
+
+        <div class="quiz">
+
+          <p><strong>4. O que significa API?</strong></p>
+
+          <button onclick="responder('r4', true)">
+            A) Uma interface de comunicação entre sistemas
+          </button>
+
+          <button onclick="responder('r4', false)">
+            B) Um tipo de monitor
+          </button>
+
+          <button onclick="responder('r4', false)">
+            C) Um editor de imagens
+          </button>
+
+          <p id="r4" class="resposta"></p>
+
+        </div>
+
+        <div class="quiz">
+
+          <p><strong>5. Qual comando registra alterações no histórico do Git?</strong></p>
+
+          <button onclick="responder('r5', false)">
+            A) npm run build
+          </button>
+
+          <button onclick="responder('r5', true)">
+            B) git commit
+          </button>
+
+          <button onclick="responder('r5', false)">
+            C) npm test
+          </button>
+
+          <p id="r5" class="resposta"></p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <strong>DO HTML AO REACT E ALÉM</strong>
+      <p>
+        Meu livro de estudos de programação.<br>
+        Inspirado no desenvolvimento da M.O Store.<br>
+        Outubro de 2026.
+      </p>
+      <p>💙 Um capítulo por vez. Um aprendizado por vez.</p>
+    </footer>
+
+  </div>
+
+  <!-- =========================================
+       JAVASCRIPT DO LIVRO
+       ========================================= -->
+
+  <script>
+
+    /* =========================================
+       EU IDENTIFICO OS CAPÍTULOS
+       ========================================= */
+
+    // Eu encontro todos os capítulos do livro.
+    const capitulos = document.querySelectorAll(".capitulo");
+
+    // Eu encontro o local onde vou criar o sumário.
+    const sumario = document.getElementById("linksSumario");
+
+    // Eu encontro o texto e a barra de progresso.
+    const textoProgresso = document.getElementById("textoProgresso");
+    const barraProgresso = document.getElementById("barraProgresso");
+
+    /* =========================================
+       EU CRIO O SUMÁRIO AUTOMATICAMENTE
+       ========================================= */
+
+    capitulos.forEach((capitulo, indice) => {
+
+      // Eu crio um link para cada capítulo.
+      const link = document.createElement("a");
+
+      // Eu configuro o destino do link.
+      link.href = "#" + capitulo.id;
+
+      // Eu mostro o número e o nome do capítulo.
+      link.textContent =
+        (indice + 1) + ". " + capitulo.dataset.titulo;
+
+      // Eu adiciono o link ao sumário.
+      sumario.appendChild(link);
+
+      /* =========================================
+         EU CRIO O BOTÃO DE CONCLUSÃO
+         ========================================= */
+
+      // Eu crio um botão para marcar o capítulo.
+      const botao = document.createElement("button");
+
+      // Eu adiciono a classe de estilo.
+      botao.className = "estudado";
+
+      // Eu guardo o identificador do capítulo.
+      botao.dataset.capitulo = capitulo.id;
+
+      // Eu escrevo o texto inicial.
+      botao.textContent = "○ Marcar capítulo como estudado";
+
+      // Eu adiciono o botão ao final do capítulo.
+      capitulo.appendChild(botao);
+
+    });
+
+    /* =========================================
+       EU GUARDO O PROGRESSO DE LEITURA
+       ========================================= */
+
+    // Eu começo com uma lista vazia.
+    let estudados = [];
+
+    // Eu tento recuperar o progresso salvo no navegador.
+    try {
+
+      estudados = JSON.parse(
+        localStorage.getItem("livro-mo-progresso") || "[]"
+      );
+
+    } catch (erro) {
+
+      // Eu evito que um dado inválido interrompa o livro.
+      estudados = [];
+
+    }
+
+    // Eu garanto que o progresso seja uma lista.
+    if (!Array.isArray(estudados)) {
+      estudados = [];
+    }
+
+    /* =========================================
+       EU ATUALIZO A BARRA DE PROGRESSO
+       ========================================= */
+
+    function atualizarProgresso() {
+
+      // Eu encontro os botões de conclusão.
+      const botoes = document.querySelectorAll(".estudado");
+
+      botoes.forEach(botao => {
+
+        // Eu verifico se o capítulo foi estudado.
+        const concluido = estudados.includes(
+          botao.dataset.capitulo
+        );
+
+        // Eu atualizo a aparência do botão.
+        botao.classList.toggle("ativo", concluido);
+
+        // Eu atualizo o texto apresentado.
+        botao.textContent = concluido
+          ? "✓ Capítulo estudado"
+          : "○ Marcar capítulo como estudado";
+
+      });
+
+      // Eu conto os capítulos concluídos.
+      const quantidade = estudados.length;
+
+      // Eu calculo a porcentagem de leitura.
+      const porcentagem =
+        (quantidade / capitulos.length) * 100;
+
+      // Eu atualizo a mensagem.
+      textoProgresso.textContent =
+        "Progresso: " + quantidade +
+        " de " + capitulos.length +
+        " capítulos estudados";
+
+      // Eu atualizo a largura da barra.
+      barraProgresso.style.width = porcentagem + "%";
+
+    }
+
+    /* =========================================
+       EU CONTROLO OS CLIQUES NOS BOTÕES
+       ========================================= */
+
+    document.addEventListener("click", evento => {
+
+      // Eu verifico se o usuário clicou em um botão de estudo.
+      const botao = evento.target.closest(".estudado");
+
+      // Eu ignoro cliques em outros elementos.
+      if (!botao) return;
+
+      // Eu descubro qual capítulo foi selecionado.
+      const id = botao.dataset.capitulo;
+
+      // Eu verifico se o capítulo já foi concluído.
+      if (estudados.includes(id)) {
+
+        // Eu retiro o capítulo da lista.
+        estudados = estudados.filter(item => item !== id);
+
+      } else {
+
+        // Eu adiciono o capítulo à lista.
+        estudados.push(id);
+
+      }
+
+      // Eu tento salvar o progresso neste navegador.
+      try {
+
+        localStorage.setItem(
+          "livro-mo-progresso",
+          JSON.stringify(estudados)
+        );
+
+      } catch (erro) {
+
+        // Eu continuo permitindo a leitura mesmo sem armazenamento.
+        console.log("Progresso não salvo neste navegador.");
+
+      }
+
+      // Eu atualizo a interface.
+      atualizarProgresso();
+
+    });
+
+    /* =========================================
+       EU CRIO A PESQUISA POR ASSUNTO
+       ========================================= */
+
+    // Eu encontro o campo de pesquisa.
+    const pesquisa = document.getElementById("pesquisa");
+
+    // Eu encontro o botão para limpar a pesquisa.
+    const limpar = document.getElementById("limparPesquisa");
+
+    // Eu executo a pesquisa enquanto o usuário digita.
+    pesquisa.addEventListener("input", () => {
+
+      // Eu preparo o texto pesquisado.
+      const termo = pesquisa.value.toLowerCase().trim();
+
+      // Eu verifico cada capítulo.
+      capitulos.forEach(capitulo => {
+
+        // Eu obtenho todo o texto do capítulo.
+        const texto = capitulo.textContent.toLowerCase();
+
+        // Eu verifico se o texto contém o termo.
+        const encontrado = texto.includes(termo);
+
+        // Eu mostro ou escondo o capítulo.
+        capitulo.style.display = encontrado ? "" : "none";
+
+      });
+
+    });
+
+    // Eu limpo a pesquisa quando o botão é clicado.
+    limpar.addEventListener("click", () => {
+
+      // Eu esvazio o campo.
+      pesquisa.value = "";
+
+      // Eu volto a mostrar todos os capítulos.
+      capitulos.forEach(capitulo => {
+        capitulo.style.display = "";
+      });
+
+      // Eu devolvo o foco ao campo de pesquisa.
+      pesquisa.focus();
+
+    });
+
+    /* =========================================
+       EU CONTROLO AS RESPOSTAS DO QUIZ
+       ========================================= */
+
+    // Eu crio uma função para verificar respostas.
+    function responder(id, correta) {
+
+      // Eu encontro o local da mensagem.
+      const mensagem = document.getElementById(id);
+
+      // Eu verifico a alternativa selecionada.
+      if (correta) {
+
+        // Eu parabenizo a resposta correta.
+        mensagem.textContent =
+          "✓ Muito bem! Resposta correta.";
+
+      } else {
+
+        // Eu incentivo a revisar o conteúdo.
+        mensagem.textContent =
+          "Ainda não! Revise o capítulo e tente novamente.";
+
+      }
+
+    }
+
+    /* =========================================
+       EU INICIALIZO O LIVRO
+       ========================================= */
+
+    // Eu apresento o progresso salvo ao abrir a página.
+    atualizarProgresso();
+
+  </script>
+
+</body>
+</html>
